@@ -106,6 +106,10 @@
     <Compile Include="Views\Panes\SolutionExplorerPane.xaml.cs">
       <DependentUpon>SolutionExplorerPane.xaml</DependentUpon>
     </Compile>
+    <Page Include="AvalonDockCustom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Documents\ProjectSettingDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
