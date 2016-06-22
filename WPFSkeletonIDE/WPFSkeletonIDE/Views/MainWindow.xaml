@@ -11,6 +11,16 @@
         xmlns:vmDocuments="clr-namespace:WPFSkeletonIDE.ViewModels.Documents"
         xmlns:vmPanes="clr-namespace:WPFSkeletonIDE.ViewModels.Panes"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
         Title="MainWindow" Height="480" Width="640">
     
     <Window.DataContext>
@@ -55,6 +65,12 @@
             x:Name="_dockingManager" Grid.Row="1" 
             DocumentsSource="{Binding DockingDocumentViewModels}"
             AnchorablesSource="{Binding DockingPaneViewModels}">
+            
+            <!--<avalonDock:DockingManager.Theme>
+                
+                <avalonDock:MetroTheme />
+                
+            </avalonDock:DockingManager.Theme>-->
 
             <!-- ======== LayoutItem コンテナ (ウィンドウやタブ) のスタイル ======== -->
             <avalonDock:DockingManager.LayoutItemContainerStyleSelector>
