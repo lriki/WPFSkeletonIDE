@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPFSkeletonIDE.Views.MainWindow"
+﻿<controls:MetroWindow x:Class="WPFSkeletonIDE.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -11,7 +11,13 @@
         xmlns:vmDocuments="clr-namespace:WPFSkeletonIDE.ViewModels.Documents"
         xmlns:vmPanes="clr-namespace:WPFSkeletonIDE.ViewModels.Panes"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome"
+        xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
         Title="MainWindow" Height="480" Width="640">
+    
+    <chrome:WindowChrome.Instance>
+        <chrome:WindowChrome />
+    </chrome:WindowChrome.Instance>
     
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -132,4 +138,4 @@
 
         </avalonDock:DockingManager>
     </Grid>
-</Window>
+</controls:MetroWindow>
