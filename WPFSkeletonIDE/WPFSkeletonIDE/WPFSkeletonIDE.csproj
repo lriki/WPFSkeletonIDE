@@ -39,15 +39,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>InfrastructureAssemblies\Livet.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>InfrastructureAssemblies\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>InfrastructureAssemblies\System.Windows.Interactivity.dll</HintPath>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -102,6 +106,7 @@
     <Compile Include="Views\Panes\SolutionExplorerPane.xaml.cs">
       <DependentUpon>SolutionExplorerPane.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Themes\DockingWindows.cs" />
     <Page Include="Views\Documents\ProjectSettingDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +162,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Themes\DockingWindowsBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Views\Themes\DockingWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -189,6 +202,41 @@
     <Content Include="InfrastructureAssemblies\Livet.XML" />
     <Content Include="InfrastructureAssemblies\Microsoft.Expression.Interactions.dll" />
     <Content Include="InfrastructureAssemblies\System.Windows.Interactivity.dll" />
+    <Resource Include="Views\Themes\Images\DockAnchorableBottom.png" />
+    <Resource Include="Views\Themes\Images\DockAnchorableLeft.png" />
+    <Resource Include="Views\Themes\Images\DockAnchorableRight.png" />
+    <Resource Include="Views\Themes\Images\DockAnchorableTop.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentAsAnchorableBottom.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentAsAnchorableLeft.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentAsAnchorableRight.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentAsAnchorableTop.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentBottom.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentInside.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentLeft.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentRight.png" />
+    <Resource Include="Views\Themes\Images\DockDocumentTop.png" />
+    <Resource Include="Views\Themes\Images\DockPaneEmpty.png" />
+    <Resource Include="Views\Themes\Images\DockPaneLargeEmpty.png" />
+    <Resource Include="Views\Themes\Images\HTabGroup.png" />
+    <Resource Include="Views\Themes\Images\Locked.png" />
+    <Resource Include="Views\Themes\Images\PinAutoHide.png" />
+    <Resource Include="Views\Themes\Images\PinAutoHide_Black.png" />
+    <Resource Include="Views\Themes\Images\PinAutoHide_Dark.png" />
+    <Resource Include="Views\Themes\Images\PinClose.png" />
+    <Resource Include="Views\Themes\Images\PinClose_Black.png" />
+    <Resource Include="Views\Themes\Images\PinClose_Dark.png" />
+    <Resource Include="Views\Themes\Images\PinDocMenu.png" />
+    <Resource Include="Views\Themes\Images\PinDocMenu_Black.png" />
+    <Resource Include="Views\Themes\Images\PinMaximize.png" />
+    <Resource Include="Views\Themes\Images\PinMaximize_Black.png" />
+    <Resource Include="Views\Themes\Images\PinMaximize_Dark.png" />
+    <Resource Include="Views\Themes\Images\PinMenu.png" />
+    <Resource Include="Views\Themes\Images\PinMenu_Black.png" />
+    <Resource Include="Views\Themes\Images\PinMenu_Dark.png" />
+    <Resource Include="Views\Themes\Images\PinRestore.png" />
+    <Resource Include="Views\Themes\Images\PinRestore_Black.png" />
+    <Resource Include="Views\Themes\Images\PinRestore_Dark.png" />
+    <Resource Include="Views\Themes\Images\VTabGroup.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
