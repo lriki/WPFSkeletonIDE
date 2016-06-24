@@ -29,9 +29,12 @@
 
     <!-- ドッキング時の Layout 境界に表示されるライン -->
     <SolidColorBrush x:Key="AvalonDock_ThemeMetro_BaseColor7" 
-                     Color="#444444"/>
+                     Color="#3F3F3F"/>
 
 
+    <!-- コンテンツ領域の背景色 -->
+    <SolidColorBrush x:Key="AvalonDock_ThemeMetro_WindowBackground" 
+                     Color="#252525"/>
 
     <!-- コンテンツ領域の背景色 -->
     <SolidColorBrush x:Key="AvalonDock_ThemeMetro_ContentBackground" 

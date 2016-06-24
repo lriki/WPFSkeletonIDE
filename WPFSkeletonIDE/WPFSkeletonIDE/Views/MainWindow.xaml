@@ -48,7 +48,8 @@
 
     <!-- ====================================================================== -->
     <!-- レイアウトルート -->
-    <Grid>
+    <Grid
+        Margin="3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -56,7 +57,9 @@
 
         <!-- ======== メニュー ======== -->
         <Menu Grid.Row="0">
-            <MenuItem Header="File" />
+            <MenuItem Header="File">
+                <MenuItem Header="New" />
+            </MenuItem>
         </Menu>
 
         <!-- ======== ドッキングエリア ======== -->
