@@ -61,7 +61,8 @@
             AnchorablesSource="{Binding DockingPaneViewModels}">
 
             <avalonDock:DockingManager.Theme>
-                <vt:DockingWindowsTheme />
+                <!--<vt:DockingWindowsTheme />-->
+                <avalonDock:MetroTheme />
             </avalonDock:DockingManager.Theme>
 
             <!-- ======== LayoutItem コンテナ (ウィンドウやタブ) のスタイル ======== -->
