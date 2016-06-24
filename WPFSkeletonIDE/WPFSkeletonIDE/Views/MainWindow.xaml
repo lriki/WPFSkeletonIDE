@@ -15,6 +15,11 @@
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         Title="MainWindow" Height="480" Width="640"
+        WindowTitleBrush="Transparent"
+        NonActiveWindowTitleBrush="Transparent"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
         >
     
     <Window.DataContext>

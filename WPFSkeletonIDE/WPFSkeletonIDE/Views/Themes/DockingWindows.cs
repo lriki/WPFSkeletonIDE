@@ -15,4 +15,11 @@ namespace WPFSkeletonIDE.Views.Themes
                 UriKind.Relative);
         }
     }
+
+    /*
+        LayoutGridResizerControl の Style から BackGround を除外した
+
+        Dockin anch
+            ItemContainerStyle
+    */
 }

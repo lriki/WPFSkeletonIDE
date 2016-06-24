@@ -120,9 +120,9 @@
                         <Border x:Name="ContentPanel" 
                                 VerticalAlignment="Stretch" 
                                 HorizontalAlignment="Stretch"  
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{DynamicResource AvalonDock_ThemeMetro_BaseColor7}" 
+                                BorderThickness="1,3,1,1" 
+                                Background="{DynamicResource AvalonDock_ThemeMetro_ContentBackground}" 
                                 Grid.Column="0"
                                 KeyboardNavigation.DirectionalNavigation="Contained"
                                 Grid.Row="1" 
@@ -169,12 +169,12 @@
                     <Setter Property="Foreground" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor5}"/>
                     <Setter Property="ToolTip" Value="{Binding ToolTip}"/>
                     <Setter Property="Padding" Value="4"/>
-                    <Setter Property="Margin" Value="2,0,2,0"/>
+                    <Setter Property="Margin" Value="-2,0,0,0"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TabItem}">
                                 <Grid SnapsToDevicePixels="true"
-                                       Margin="0,4,4,4">
+                                       Margin="0">
                                     <Border x:Name="Bd" 
                                           BorderBrush="{TemplateBinding BorderBrush}"
    				                          BorderThickness="0,3,0,0" 
@@ -183,7 +183,7 @@
                                     </Border>
                                     <ContentPresenter 
 								            x:Name="Content" 
-                                            Margin="2"
+                                            Margin="6,2,2,2"
 								            ContentSource="Header" 
                                             HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" 
                                             VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
@@ -203,6 +203,7 @@
                                         <Setter Property="BorderBrush"
 									        Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor3}" />
                                         <Setter Property="Foreground" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor5}"/>
+                                        <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor7}"/>
                                         <Setter Property="Panel.ZIndex" 
                                             Value="1" />
                                     </DataTrigger>
@@ -214,6 +215,7 @@
                                         </MultiTrigger.Conditions>
                                         <Setter Property="BorderBrush" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor4}"/>
                                         <Setter Property="Foreground" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor5}"/>
+                                        <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor7}"/>
                                         <Setter Property="Panel.ZIndex" Value="0" />
                                     </MultiTrigger>
                                     <Trigger Property="IsEnabled" Value="false">
@@ -247,7 +249,7 @@
     <Style x:Key="AvalonDock_ThemeMetro_AnchorablePaneControlStyle" TargetType="{x:Type avalonDockControls:LayoutAnchorablePaneControl}">
         <Setter Property="TabStripPlacement" Value="Bottom"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Foreground" Value="{Binding Model.Root.Manager.Foreground, RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Background" Value="{Binding Model.Root.Manager.Background, RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Template">
@@ -261,7 +263,7 @@
                         <!--Following border is required to catch mouse events-->
                         <Border Background="Transparent" Grid.RowSpan="2"/>
                         <Border x:Name="ContentPanel" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderBrush="{DynamicResource AvalonDock_ThemeMetro_BaseColor7}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}" 
                                 Grid.Column="0" 
@@ -288,6 +290,7 @@
             </Setter.Value>
         </Setter>
 
+        <!-- ★ Anchorable のドッキング中タブ -->
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="{x:Type TabItem}">
@@ -302,8 +305,8 @@
                                 <Grid SnapsToDevicePixels="true">
                                     <Border x:Name="Bd" 
 							              BorderBrush="{TemplateBinding BorderBrush}"
-                                          Margin="4"
-   				                          BorderThickness="0,2,0,0" 
+                                          Margin="2"
+   				                          BorderThickness="0,0,0,2" 
 							              Background="{TemplateBinding Background}" 
 							              Padding="{TemplateBinding Padding}">
                                         <ContentPresenter 
@@ -372,6 +375,7 @@
         </Setter>
     </Style>
 
+    <!-- ★ Anchorable のタイトル。装飾部分は含まない -->
     <Style TargetType="avalonDockControls:AnchorablePaneTitle">
         <Setter Property="Template">
             <Setter.Value>
@@ -379,7 +383,7 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="0,3,0,0">
+                            Padding="5,3,5,0">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -767,7 +771,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type avalonDock:DockingManager}">
-                    <Border Background="{TemplateBinding Background}"
+                    <Border Margin="3"
+                            Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
@@ -801,7 +806,6 @@
 
     <!--LayoutGridResizerControl-->
     <Style x:Key="{x:Type avalonDockControls:LayoutGridResizerControl}" TargetType="{x:Type avalonDockControls:LayoutGridResizerControl}">
-        <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor7}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type avalonDockControls:LayoutGridResizerControl}">
@@ -918,13 +922,14 @@
         </Setter>
     </Style>
 
+    <!-- ★Anchorable (Docking/Floating 共用) -->
     <Style TargetType="{x:Type avalonDockControls:LayoutAnchorableControl}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type avalonDockControls:LayoutAnchorableControl}">
                     <Border 
                         x:Name="Bd"
-                        Background="{TemplateBinding Background}"
+                            Background="{DynamicResource AvalonDock_ThemeMetro_ContentBackground}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
@@ -1084,10 +1089,10 @@
                                 TargetName="Header"
                                 Property="Background"
 								Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor3}" />
-                            <Setter 
+                            <!--<Setter 
                                 TargetName="Header"
                                 Property="TextElement.Foreground"
-								Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor1}" />
+								Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor1}" />-->
                         </DataTrigger>
 
                         <Trigger Property="IsMouseOver" SourceName="ContextMenuDropdownButton" Value="True">
@@ -1113,6 +1118,7 @@
         </Setter>
     </Style>
 
+    <!-- ★ Floating Anchorble -->
     <Style x:Key="{x:Type avalonDockControls:LayoutAnchorableFloatingWindowControl}" TargetType="{x:Type avalonDockControls:LayoutAnchorableFloatingWindowControl}">
         <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor1}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor6}"/>
@@ -1238,7 +1244,7 @@
                         </Trigger>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Model.SinglePane.SelectedContent.IsActive}" Value="True">
                             <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor3}" TargetName="Header"/>
-                            <Setter Property="TextElement.Foreground" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor1}" TargetName="Header"/>
+                            <!--<Setter Property="TextElement.Foreground" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor1}" TargetName="Header"/>-->
                             <Setter Property="Source" TargetName="PART_ImgPinClose" Value="Images/PinClose_Dark.png"/>
                             <Setter Property="Source" TargetName="PART_ImgPinRestore" Value="Images/PinRestore_Dark.png"/>
                             <Setter Property="Source" TargetName="PART_ImgPinMaximize" Value="Images/PinMaximize_Dark.png"/>
@@ -1265,8 +1271,9 @@
         </Setter>
     </Style>
 
+    <!-- ★ AutoHide のときに表示されるウィンドウ -->
     <Style x:Key="{x:Type avalonDockControls:LayoutAutoHideWindowControl}" TargetType="{x:Type avalonDockControls:LayoutAutoHideWindowControl}">
-        <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_BaseColor1}"/>
+        <Setter Property="Background" Value="{DynamicResource AvalonDock_ThemeMetro_ContentBackground}"/>
     </Style>
 
 
