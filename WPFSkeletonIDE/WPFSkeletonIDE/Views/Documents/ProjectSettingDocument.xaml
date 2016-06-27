@@ -5,8 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFSkeletonIDE.Views.Documents"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Padding="5">
     <Grid>
-        <TextBlock>ProjectSettingDocument</TextBlock>
+        <StackPanel>
+            <TextBlock Margin="5">ProjectSettingDocument</TextBlock>
+            <TextBox Margin="5">Text</TextBox>
+            <CheckBox Content="Check" Margin="5"/>
+            <Button Content="Button"  Margin="5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -202,6 +202,7 @@
     <Content Include="InfrastructureAssemblies\Livet.XML" />
     <Content Include="InfrastructureAssemblies\Microsoft.Expression.Interactions.dll" />
     <Content Include="InfrastructureAssemblies\System.Windows.Interactivity.dll" />
+    <Resource Include="Views\Images\NewPage.png" />
     <Resource Include="Views\Themes\Images\DockAnchorableBottom.png" />
     <Resource Include="Views\Themes\Images\DockAnchorableLeft.png" />
     <Resource Include="Views\Themes\Images\DockAnchorableRight.png" />

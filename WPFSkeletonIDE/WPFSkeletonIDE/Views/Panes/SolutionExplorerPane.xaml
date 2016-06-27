@@ -7,6 +7,42 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock>SolutionExplorerPane</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBarPanel Grid.Row="0">
+            <ToolBar ToolBarTray.IsLocked="True">
+                <Button>
+                    <Image Source="../Images/NewPage.png" Width="16" Height="16" />
+                </Button>
+                <Separator />
+                <Button>
+                    <Image Source="../Images/NewPage.png" Width="16" Height="16" />
+                </Button>
+            </ToolBar>
+        </ToolBarPanel>
+
+        <TreeView Grid.Row="1">
+            <TreeViewItem Header="Item1">
+                <TreeViewItem Header="Item1-1">
+                    <TreeViewItem Header="Item1-1-1" />
+                    <TreeViewItem Header="Item1-1-2" />
+                    <TreeViewItem Header="Item1-1-3" />
+                </TreeViewItem>
+                <TreeViewItem Header="Item1-2">
+                    <TreeViewItem Header="Item1-2-1" />
+                    <TreeViewItem Header="Item1-2-2" />
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Item2" IsExpanded="True">
+                <TreeViewItem Header="Item2-1" IsExpanded="True" IsSelected="True">
+                    <TreeViewItem Header="Item2-1-1" />
+                    <TreeViewItem Header="Item2-1-2" />
+                    <TreeViewItem Header="Item2-1-3" />
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+        
     </Grid>
 </UserControl>

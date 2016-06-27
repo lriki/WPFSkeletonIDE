@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock>OutputPane</TextBlock>
+        <TextBox>
+            ========== ビルド: 1 正常終了、0 失敗、0 更新不要、0 スキップ ==========
+        </TextBox>
     </Grid>
 </UserControl>

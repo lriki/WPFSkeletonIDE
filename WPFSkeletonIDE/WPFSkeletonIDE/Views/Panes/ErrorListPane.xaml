@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFSkeletonIDE.Views.Panes"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid>
-        <TextBlock>ErrorListPane</TextBlock>
+        <ListView Name="listView1" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Code" DisplayMemberBinding="{Binding ID}" Width="50" />
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Name}" Width="100" />
+                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Age}" Width="100" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
