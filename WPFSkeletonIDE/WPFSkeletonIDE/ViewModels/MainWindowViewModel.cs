@@ -54,6 +54,8 @@ namespace WPFSkeletonIDE.ViewModels
         }
         #endregion
 
+        public ViewModels.Panes.SolutionExplorerPaneViewModel SolutionExplorerPaneViewModel { get; private set; }
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -63,11 +65,13 @@ namespace WPFSkeletonIDE.ViewModels
             DockingDocumentViewModels.Add(new ViewModels.Documents.SourceFileDocumentViewModel());
             DockingDocumentViewModels.Add(new ViewModels.Documents.ProjectSettingDocumentViewModel());
 
+            SolutionExplorerPaneViewModel = new ViewModels.Panes.SolutionExplorerPaneViewModel();
+
             DockingPaneViewModels = new ObservableCollection<ViewModel>();
             DockingPaneViewModels.Add(new ViewModels.Panes.ErrorListPaneViewModel());
             DockingPaneViewModels.Add(new ViewModels.Panes.OutputPaneViewModel());
             DockingPaneViewModels.Add(new ViewModels.Panes.PropertyPaneViewModel());
-            DockingPaneViewModels.Add(new ViewModels.Panes.SolutionExplorerPaneViewModel());
+            DockingPaneViewModels.Add(SolutionExplorerPaneViewModel);
         }
 
         /// <summary>

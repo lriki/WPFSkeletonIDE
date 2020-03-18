@@ -33,5 +33,24 @@ namespace WPFSkeletonIDE.ViewModels.Panes
         /// </summary>
         public abstract string ContentId { get; }
         #endregion
+
+        #region IsVisible Property
+        /// <summary>
+        /// ウィンドウの表示状態
+        /// </summary>
+        public bool IsVisible
+        {
+            get { return _isVisible; }
+            set
+            {
+                if (_isVisible != value)
+                {
+                    _isVisible = value;
+                    RaisePropertyChanged("IsVisible");
+                }
+            }
+        }
+        private bool _isVisible = true;
+        #endregion
     }
 }

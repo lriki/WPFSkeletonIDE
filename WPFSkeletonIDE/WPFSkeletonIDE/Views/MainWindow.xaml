@@ -12,6 +12,16 @@
         xmlns:vmPanes="clr-namespace:WPFSkeletonIDE.ViewModels.Panes"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         Title="MainWindow" Height="480" Width="640">
+
+    <Window.Resources>
+        <l:VisibilityAndBooleanConverter 
+            x:Key="VisibilityAndBooleanConverter"
+            ConvertWhenTrue="Visible"
+            ConvertWhenFalse="Hidden"
+            ConvertBackWhenCollapsed="False"
+            ConvertBackWhenHidden="False"
+            ConvertBackWhenVisible="True"/>
+    </Window.Resources>
     
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -48,6 +58,9 @@
         <!-- ======== メニュー ======== -->
         <Menu Grid.Row="0">
             <MenuItem Header="File" />
+            <MenuItem Header="View">
+                <MenuItem Header="ソリューションエクスプローラ" IsCheckable="True" IsChecked="{Binding SolutionExplorerPaneViewModel.IsVisible}" />
+            </MenuItem>
         </Menu>
 
         <!-- ======== ドッキングエリア ======== -->
@@ -69,6 +82,7 @@
                     <v:LayoutItemTypedStyle DataType="{x:Type vmPanes:PaneViewModelBase}">
                         <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
                             <Setter Property="Title" Value="{Binding Model.Title}"/>
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource VisibilityAndBooleanConverter}}" />
                         </Style>
                     </v:LayoutItemTypedStyle>
                 </v:LayoutItemContainerStyleSelector>
