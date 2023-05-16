@@ -64,7 +64,7 @@ namespace WpfSkeletonApp.ViewModels
 
         public void OpenFile()
         {
-            DocumentPaneViewModels.Add(new DocumentPanes.FilePaneViewModel());
+            DocumentPaneViewModels.Add(new DocumentPanes.FilePaneViewModel() { IsActive = true });
         }
         
         //protected async override void OnViewLoaded(object view)

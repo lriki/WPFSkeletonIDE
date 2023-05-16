@@ -25,6 +25,13 @@ namespace WpfSkeletonApp.ViewModels.DocumentPanes
         /// </summary>
         public abstract string ContentId { get; }
         #endregion
+
+        #region IsActive Property
+        /// <summary>
+        /// Pane がアクティブかどうか
+        /// </summary>
+        public bool IsActive { get; set; }
+        #endregion
     }
 }
 

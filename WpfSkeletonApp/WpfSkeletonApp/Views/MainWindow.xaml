@@ -58,6 +58,7 @@
                             <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
                             <Setter Property="CanClose" Value="False" />
                             <Setter Property="CanFloat" Value="False" />
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive}" />
                         </Style>
                     </dh:LayoutItemTypedStyle>
                     <!-- AnchorablePane 共通のスタイル -->
