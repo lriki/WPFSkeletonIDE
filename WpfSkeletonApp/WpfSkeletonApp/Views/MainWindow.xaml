@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:WpfSkeletonApp"
         xmlns:dh="clr-namespace:WpfSkeletonApp.Views.DockingHelper"
         xmlns:vmDocumentPanes="clr-namespace:WpfSkeletonApp.ViewModels.DocumentPanes"
         xmlns:vmAnchorablePanes="clr-namespace:WpfSkeletonApp.ViewModels.AnchorablePanes"
         xmlns:vDocumentPanes="clr-namespace:WpfSkeletonApp.Views.DocumentPanes"
         xmlns:vAnchorablePanes="clr-namespace:WpfSkeletonApp.Views.AnchorablePanes"
+        ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
