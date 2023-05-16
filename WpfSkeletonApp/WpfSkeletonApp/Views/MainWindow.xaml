@@ -12,7 +12,7 @@
         xmlns:vAnchorablePanes="clr-namespace:WpfSkeletonApp.Views.AnchorablePanes"
         ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="💮MainWindow" Height="700" Width="1200">
     <Window.Resources>
         <dh:VisibilityBooleanConverter  x:Key="VisibilityBooleanConverter"/>
     </Window.Resources>
@@ -24,13 +24,13 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0">
-            <MenuItem Header="File">
+            <MenuItem Header="ファイル">
             </MenuItem>
-            <MenuItem Header="Edit">
+            <MenuItem Header="編集">
             </MenuItem>
-            <MenuItem Header="View">
+            <MenuItem Header="表示">
             </MenuItem>
-            <MenuItem Header="Help">
+            <MenuItem Header="ヘルプ">
             </MenuItem>
         </Menu>
 
@@ -56,8 +56,8 @@
                         <Style TargetType="{x:Type LayoutItem}">
                             <Setter Property="Title" Value="{Binding Model.Title}" />
                             <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
-                            <Setter Property="CanClose" Value="False" />
-                            <Setter Property="CanFloat" Value="False" />
+                            <Setter Property="CanClose" Value="True" />
+                            <Setter Property="CanFloat" Value="True" />
                             <Setter Property="IsActive" Value="{Binding Model.IsActive}" />
                         </Style>
                     </dh:LayoutItemTypedStyle>
@@ -86,6 +86,10 @@
                     <!-- [MapEditorPane] Document -->
                     <DataTemplate DataType="{x:Type vmDocumentPanes:MapEditorPaneViewModel}">
                         <vDocumentPanes:MapEditorPane/>
+                    </DataTemplate>
+                    <!-- [EventEditorPane] Document -->
+                    <DataTemplate DataType="{x:Type vmDocumentPanes:EventEditorPaneViewModel}">
+                        <vDocumentPanes:EventEditorPane/>
                     </DataTemplate>
                     <!-- [Output] Pane -->
                     <DataTemplate DataType="{x:Type vmAnchorablePanes:OutputPaneViewModel}">
@@ -120,15 +124,24 @@
             <!-- ======== 初期レイアウト領域の定義（ウィンドウの「置き場所」） ======== -->
             <LayoutRoot>
                 <LayoutPanel Orientation="Horizontal">
-                    <LayoutAnchorablePane DockWidth="150" Name="LeftSideArea" />
+                    <LayoutAnchorablePane DockWidth="300" Name="LeftSideArea" />
                     <LayoutPanel Orientation="Vertical" >
                         <LayoutPanel Orientation="Horizontal">
                             <LayoutDocumentPane />
-                            <LayoutAnchorablePane DockWidth="150" Name="RightSideArea" />
+                            <LayoutAnchorablePane DockWidth="200" Name="RightSideArea" />
                         </LayoutPanel>
-                        <LayoutAnchorablePane DockHeight="150" Name="BottomSideArea" />
+                        <LayoutAnchorablePane DockHeight="100" Name="BottomSideArea" />
                     </LayoutPanel>
                 </LayoutPanel>
+
+                <!--<LayoutRoot.FloatingWindows>
+                    <LayoutDocumentFloatingWindow>
+                        <LayoutDocumentPaneGroup>
+                            <LayoutDocumentPane>
+                            </LayoutDocumentPane>
+                        </LayoutDocumentPaneGroup>
+                    </LayoutDocumentFloatingWindow>
+                </LayoutRoot.FloatingWindows>-->
             </LayoutRoot>
 
         </DockingManager >

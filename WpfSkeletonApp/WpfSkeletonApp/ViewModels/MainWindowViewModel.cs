@@ -42,8 +42,8 @@ namespace WpfSkeletonApp.ViewModels
 
             DocumentPaneViewModels = new()
             {
-                new DocumentPanes.FilePaneViewModel(),
-                new DocumentPanes.ProjectSettingPaneViewModel(),
+                //new DocumentPanes.FilePaneViewModel(),
+                //new DocumentPanes.ProjectSettingPaneViewModel(),
             };
             AnchorablePaneViewModels = new()
             {
@@ -69,7 +69,11 @@ namespace WpfSkeletonApp.ViewModels
 
         public void OpenMapEditor()
         {
-            DocumentPaneViewModels.Add(new DocumentPanes.MapEditorPaneViewModel());
+            DocumentPaneViewModels.Add(new DocumentPanes.MapEditorPaneViewModel(this) { IsActive = true });
+        }
+        public void OpenEventEditor()
+        {
+            DocumentPaneViewModels.Add(new DocumentPanes.EventEditorPaneViewModel() { IsActive = true });
         }
 
         //protected async override void OnViewLoaded(object view)

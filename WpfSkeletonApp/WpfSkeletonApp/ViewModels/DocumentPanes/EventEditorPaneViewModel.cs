@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfSkeletonApp.Views;
 
 namespace WpfSkeletonApp.ViewModels.DocumentPanes
 {
-    public class MapEditorPaneViewModel : DocumentPaneViewModelBase
+    public class EventEditorPaneViewModel : DocumentPaneViewModelBase
     {
-        private readonly MainWindowViewModel _mainWindow;
-        
         #region Title Property
         public override string Title
         {
-            get { return "MapEditor"; }
+            get { return "EventEditor"; }
         }
         #endregion
 
@@ -24,15 +21,5 @@ namespace WpfSkeletonApp.ViewModels.DocumentPanes
             get { return GetHashCode().ToString(); }
         }
         #endregion
-
-        public MapEditorPaneViewModel(MainWindowViewModel mainWindow)
-        {
-            _mainWindow = mainWindow;
-        }
-        
-        public void SubmitEvent()
-        {
-            _mainWindow.OpenEventEditor();
-        }
     }
 }

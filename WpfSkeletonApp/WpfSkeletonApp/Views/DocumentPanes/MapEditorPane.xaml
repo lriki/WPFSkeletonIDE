@@ -8,31 +8,68 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal">
+
+        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="LightGray" Background="LavenderBlush" VerticalAlignment="Top"  Margin="2" >
+            <TextBlock Text="ツクールに似たマップエディタのウィンドウです。イベント一覧からイベントをダブルクリックすると、編集ウィンドウを開きます。" Margin="4" />
+        </Border>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Content="レイヤー切り替え" HorizontalAlignment="Left" />
             <Button Content="イベント編集切り替え" HorizontalAlignment="Left" />
             <Button Content="編集ツール" HorizontalAlignment="Left" />
         </StackPanel>
-
-        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
+        
+        <Border Grid.Row="2" Grid.Column="0" Grid.RowSpan="1"
                 HorizontalAlignment="Stretch"
                 BorderThickness="1" BorderBrush="SteelBlue" Background="Lavender">
-            <TextBlock Text="タイルセットまたはイベント一覧を表示します。" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="タイルセットを表示します。" />
+                <Image Grid.Row="2" Source="/Resources/MapImage1.png" Stretch="Fill" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="3" Grid.Column="0" Grid.RowSpan="1"
+                HorizontalAlignment="Stretch"
+                BorderThickness="1" BorderBrush="SteelBlue" Background="Lavender">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="イベント一覧を表示します。" />
+                <ListBox Grid.Row="2">
+                    <ListBoxItem Content="0001: イベント1" MouseDoubleClick="ListBoxItem_MouseDoubleClick" />
+                    <ListBoxItem Content="0002: イベント2" MouseDoubleClick="ListBoxItem_MouseDoubleClick" />
+                    <ListBoxItem Content="0003: イベント3" MouseDoubleClick="ListBoxItem_MouseDoubleClick" />
+                </ListBox>
+            </Grid>
         </Border>
         
-        <Border Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+        <Border Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"
                 HorizontalAlignment="Stretch"
                 BorderThickness="1" BorderBrush="SteelBlue" Background="White">
-            <TextBlock Text="マップを表示します。" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="マップを表示します。" />
+                <Image Grid.Row="2" Source="/Resources/MapImage2.png" Stretch="Fill" />
+            </Grid>
         </Border>
         
     </Grid>

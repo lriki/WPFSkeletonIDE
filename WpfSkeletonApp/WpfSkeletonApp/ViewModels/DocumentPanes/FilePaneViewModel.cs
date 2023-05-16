@@ -11,7 +11,7 @@ namespace WpfSkeletonApp.ViewModels.DocumentPanes
         #region Title Property
         public override string Title
         {
-            get { return "File"; }    // TODO: ファイルパスにするのが望ましいです。
+            get { return "アクター"; }    // TODO: ファイルパスにするのが望ましいです。
         }
         #endregion
 

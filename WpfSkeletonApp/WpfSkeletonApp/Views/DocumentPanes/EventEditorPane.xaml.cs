@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace WpfSkeletonApp.Views.DocumentPanes
 {
     /// <summary>
-    /// MapEditorPane.xaml の相互作用ロジック
+    /// EventEditorPane.xaml の相互作用ロジック
     /// </summary>
-    public partial class MapEditorPane : UserControl
+    public partial class EventEditorPane : UserControl
     {
-        public MapEditorPane()
+        public EventEditorPane()
         {
             InitializeComponent();
-        }
-
-        private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var vm = (ViewModels.DocumentPanes.MapEditorPaneViewModel)DataContext;
-            vm.SubmitEvent();
         }
     }
 }
