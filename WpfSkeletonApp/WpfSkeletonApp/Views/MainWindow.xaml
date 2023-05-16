@@ -1,0 +1,88 @@
+﻿<Window x:Class="WpfSkeletonApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSkeletonApp"
+        xmlns:dh="clr-namespace:WpfSkeletonApp.Views.DockingHelper"
+        xmlns:vmDocumentPanes="clr-namespace:WpfSkeletonApp.ViewModels.DocumentPanes"
+        xmlns:vmAnchorablePanes="clr-namespace:WpfSkeletonApp.ViewModels.AnchorablePanes"
+        xmlns:vDocumentPanes="clr-namespace:WpfSkeletonApp.Views.DocumentPanes"
+        xmlns:vAnchorablePanes="clr-namespace:WpfSkeletonApp.Views.AnchorablePanes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <dh:VisibilityBooleanConverter  x:Key="VisibilityBooleanConverter"/>
+    </Window.Resources>
+    <Grid>
+
+        <!-- ======== ドッキングエリア ======== -->
+        <DockingManager
+            x:Name="DockingManager"
+            Grid.Row="2" 
+            DocumentsSource="{Binding DocumentPaneViewModels}"
+            AnchorablesSource="{Binding AnchorablePaneViewModels}">
+
+            <!-- ======== LayoutItem コンテナ (ウィンドウ内容ではなく、ウィンドウやタブの部分) のスタイル ======== -->
+            <DockingManager.LayoutItemContainerStyleSelector>
+                <dh:LayoutItemContainerStyleSelector>
+                    <!-- DocumentPane 共通のスタイル -->
+                    <dh:LayoutItemTypedStyle DataType="{x:Type vmDocumentPanes:DocumentPaneViewModelBase}">
+                        <Style TargetType="{x:Type LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
+                            <Setter Property="CanClose" Value="False" />
+                            <Setter Property="CanFloat" Value="False" />
+                        </Style>
+                    </dh:LayoutItemTypedStyle>
+                    <!-- AnchorablePane 共通のスタイル -->
+                    <dh:LayoutItemTypedStyle DataType="{x:Type vmAnchorablePanes:AnchorablePaneViewModelBase}">
+                        <Style TargetType="{x:Type LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="ContentId" Value="{Binding Model.ContentId}" />
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource VisibilityBooleanConverter}}" />
+                        </Style>
+                    </dh:LayoutItemTypedStyle>
+                </dh:LayoutItemContainerStyleSelector>
+            </DockingManager.LayoutItemContainerStyleSelector>
+
+            <!-- ======== ウィンドウ内容のテンプレート。ViewModel に対してどの View を表示するかを指定する。 ======== -->
+            <DockingManager.LayoutItemTemplateSelector>
+                <dh:LayoutItemTemplateSelector>
+                    <!-- [FilePane] Document -->
+                    <DataTemplate DataType="{x:Type vmDocumentPanes:FilePaneViewModel}">
+                        <vDocumentPanes:FilePane/>
+                    </DataTemplate>
+                    <!-- [Output] Pane -->
+                    <DataTemplate DataType="{x:Type vmAnchorablePanes:OutputPaneViewModel}">
+                        <vAnchorablePanes:OutputPane />
+                    </DataTemplate>
+                </dh:LayoutItemTemplateSelector>
+            </DockingManager.LayoutItemTemplateSelector>
+
+            <!-- ======== 各ウィンドウの初期配置場所を決める ======== -->
+            <!-- ContentId で識別される ViewModel を持つ LayoutAnchorable を、TargetLayoutName で識別される LayoutAnchorablePane に接続する -->
+            <DockingManager.LayoutUpdateStrategy>
+                <dh:LayoutInitializer>
+                    <dh:LayoutInsertTarget ContentId="FilePaneViewModel" TargetLayoutName="LeftSideArea" />
+                    <dh:LayoutInsertTarget ContentId="OutputPaneViewModel" TargetLayoutName="BottomSideArea" />
+                </dh:LayoutInitializer>
+            </DockingManager.LayoutUpdateStrategy>
+
+            <!-- ======== 初期レイアウト領域の定義（ウィンドウの「置き場所」） ======== -->
+            <LayoutRoot>
+                <LayoutPanel Orientation="Horizontal">
+                    <LayoutAnchorablePane DockWidth="150" Name="LeftSideArea" />
+                    <LayoutPanel Orientation="Vertical" >
+                        <LayoutPanel Orientation="Horizontal">
+                            <LayoutDocumentPane />
+                            <LayoutAnchorablePane DockWidth="150" Name="RightSideArea" />
+                        </LayoutPanel>
+                        <LayoutAnchorablePane DockHeight="150" Name="BottomSideArea" />
+                    </LayoutPanel>
+                </LayoutPanel>
+            </LayoutRoot>
+
+        </DockingManager >
+    </Grid>
+</Window>
