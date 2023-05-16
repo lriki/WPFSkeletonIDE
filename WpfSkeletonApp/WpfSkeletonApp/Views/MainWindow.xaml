@@ -15,7 +15,30 @@
         <dh:VisibilityBooleanConverter  x:Key="VisibilityBooleanConverter"/>
     </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+            </MenuItem>
+            <MenuItem Header="Edit">
+            </MenuItem>
+            <MenuItem Header="View">
+            </MenuItem>
+            <MenuItem Header="Help">
+            </MenuItem>
+        </Menu>
+
+        <ToolBarTray Grid.Row="1">
+            <ToolBar ToolBarTray.IsLocked="True" >
+                <Button Content="Tool" >
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        
         <!-- ======== ドッキングエリア ======== -->
         <DockingManager
             x:Name="DockingManager"
@@ -53,9 +76,25 @@
                     <DataTemplate DataType="{x:Type vmDocumentPanes:FilePaneViewModel}">
                         <vDocumentPanes:FilePane/>
                     </DataTemplate>
+                    <!-- [ProjectSettingPane] Document -->
+                    <DataTemplate DataType="{x:Type vmDocumentPanes:ProjectSettingPaneViewModel}">
+                        <vDocumentPanes:ProjectSettingPane/>
+                    </DataTemplate>
                     <!-- [Output] Pane -->
                     <DataTemplate DataType="{x:Type vmAnchorablePanes:OutputPaneViewModel}">
                         <vAnchorablePanes:OutputPane />
+                    </DataTemplate>
+                    <!-- [ExplorerPane] Pane -->
+                    <DataTemplate DataType="{x:Type vmAnchorablePanes:ExplorerPaneViewModel}">
+                        <vAnchorablePanes:ExplorerPane />
+                    </DataTemplate>
+                    <!-- [AssetsPane] Pane -->
+                    <DataTemplate DataType="{x:Type vmAnchorablePanes:AssetsPaneViewModel}">
+                        <vAnchorablePanes:AssetsPane />
+                    </DataTemplate>
+                    <!-- [PropertiesPane] Pane -->
+                    <DataTemplate DataType="{x:Type vmAnchorablePanes:PropertiesPaneViewModel}">
+                        <vAnchorablePanes:PropertiesPane />
                     </DataTemplate>
                 </dh:LayoutItemTemplateSelector>
             </DockingManager.LayoutItemTemplateSelector>
@@ -64,8 +103,10 @@
             <!-- ContentId で識別される ViewModel を持つ LayoutAnchorable を、TargetLayoutName で識別される LayoutAnchorablePane に接続する -->
             <DockingManager.LayoutUpdateStrategy>
                 <dh:LayoutInitializer>
-                    <dh:LayoutInsertTarget ContentId="FilePaneViewModel" TargetLayoutName="LeftSideArea" />
                     <dh:LayoutInsertTarget ContentId="OutputPaneViewModel" TargetLayoutName="BottomSideArea" />
+                    <dh:LayoutInsertTarget ContentId="ExplorerPaneViewModel" TargetLayoutName="LeftSideArea" />
+                    <dh:LayoutInsertTarget ContentId="AssetsPaneViewModel" TargetLayoutName="LeftSideArea" />
+                    <dh:LayoutInsertTarget ContentId="PropertiesPaneViewModel" TargetLayoutName="RightSideArea" />
                 </dh:LayoutInitializer>
             </DockingManager.LayoutUpdateStrategy>
 

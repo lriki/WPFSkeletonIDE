@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace WpfSkeletonApp.ViewModels.DocumentPanes
 {
-    public class FilePaneViewModel : DocumentPaneViewModelBase
+    public class ProjectSettingPaneViewModel : DocumentPaneViewModelBase
     {
         #region Title Property
         public override string Title
         {
-            get { return "File"; }    // TODO: ファイルパスにするのが望ましいです。
+            get { return "ProjectSetting"; }
         }
         #endregion
 
         #region ContentId Property
         public override string ContentId
         {
-            get { return GetHashCode().ToString(); }    // TODO: ファイルパスにするのが望ましいです。
+            get { return "ProjectSettingPaneViewModel"; }
         }
         #endregion
     }

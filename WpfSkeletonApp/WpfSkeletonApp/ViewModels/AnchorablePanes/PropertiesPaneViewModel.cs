@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfSkeletonApp.ViewModels.DocumentPanes
+namespace WpfSkeletonApp.ViewModels.AnchorablePanes
 {
-    public class FilePaneViewModel : DocumentPaneViewModelBase
+    public class PropertiesPaneViewModel : AnchorablePaneViewModelBase
     {
         #region Title Property
         public override string Title
         {
-            get { return "File"; }    // TODO: ファイルパスにするのが望ましいです。
+            get { return "Properties"; }
         }
         #endregion
 
         #region ContentId Property
         public override string ContentId
         {
-            get { return GetHashCode().ToString(); }    // TODO: ファイルパスにするのが望ましいです。
+            get { return "PropertiesPaneViewModel"; }
         }
         #endregion
     }
