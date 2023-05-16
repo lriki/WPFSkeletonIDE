@@ -66,7 +66,12 @@ namespace WpfSkeletonApp.ViewModels
         {
             DocumentPaneViewModels.Add(new DocumentPanes.FilePaneViewModel() { IsActive = true });
         }
-        
+
+        public void OpenMapEditor()
+        {
+            DocumentPaneViewModels.Add(new DocumentPanes.MapEditorPaneViewModel());
+        }
+
         //protected async override void OnViewLoaded(object view)
         //{
         //    base.OnViewLoaded(view);

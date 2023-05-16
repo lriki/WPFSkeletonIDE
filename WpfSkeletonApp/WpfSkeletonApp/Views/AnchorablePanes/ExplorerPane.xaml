@@ -7,12 +7,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="ExplorerPane" />
-        <ListBox>
-            <ListBoxItem
-                Content="Actor"
-                MouseDoubleClick="ListBoxItem_MouseDoubleClick"
-                />
-        </ListBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="マップ">
+                <TreeView>
+                    <TreeViewItem Header="📄マップ1">
+                        <TreeViewItem Header="📄マップ2" MouseDoubleClick="TreeViewItem_MouseDoubleClick">
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="📄マップ3">
+                    </TreeViewItem>
+                </TreeView>
+            </TabItem>
+            
+            <TabItem Header="アクター">
+                <ListBox>
+                    <ListBoxItem
+                        Content="Actor"
+                        MouseDoubleClick="ListBoxItem_MouseDoubleClick" />
+                </ListBox>
+            </TabItem>
+
+            <TabItem Header="アイテム" />
+            <TabItem Header="スキル" />
+            <TabItem Header="システム" />
+        </TabControl>
     </Grid>
 </UserControl>

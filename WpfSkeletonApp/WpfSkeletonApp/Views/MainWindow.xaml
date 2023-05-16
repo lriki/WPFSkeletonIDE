@@ -83,6 +83,10 @@
                     <DataTemplate DataType="{x:Type vmDocumentPanes:ProjectSettingPaneViewModel}">
                         <vDocumentPanes:ProjectSettingPane/>
                     </DataTemplate>
+                    <!-- [MapEditorPane] Document -->
+                    <DataTemplate DataType="{x:Type vmDocumentPanes:MapEditorPaneViewModel}">
+                        <vDocumentPanes:MapEditorPane/>
+                    </DataTemplate>
                     <!-- [Output] Pane -->
                     <DataTemplate DataType="{x:Type vmAnchorablePanes:OutputPaneViewModel}">
                         <vAnchorablePanes:OutputPane />

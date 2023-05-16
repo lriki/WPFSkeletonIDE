@@ -34,5 +34,10 @@ namespace WpfSkeletonApp.ViewModels.AnchorablePanes
         {
             _mainWindow.OpenFile();
         }
+
+        public void SubmitMapItem()
+        {
+            _mainWindow.OpenMapEditor();
+        }
     }
 }

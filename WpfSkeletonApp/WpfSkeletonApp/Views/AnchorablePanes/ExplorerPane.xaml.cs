@@ -30,5 +30,11 @@ namespace WpfSkeletonApp.Views.AnchorablePanes
             var vm = (ViewModels.AnchorablePanes.ExplorerPaneViewModel)DataContext;
             vm.SubmitItem();
         }
+
+        private void TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var vm = (ViewModels.AnchorablePanes.ExplorerPaneViewModel)DataContext;
+            vm.SubmitMapItem();
+        }
     }
 }
